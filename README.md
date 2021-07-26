@@ -8,6 +8,9 @@ JsonPowerDB is a Real-time, High Performance, Lightweight and Simple to Use, Res
 * It is built on top of one of the fastest and real-time data indexing engine - PowerIndeX.
 * It is low level (raw) form of data and is also human readable.
 * It helps developers in faster coding, in-turn reduces development cost.
+### JavaScript library 
+http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js
+
 ###  ScreenShots : 
 ![Screenshot 2021-07-26 175902](https://user-images.githubusercontent.com/76084504/126988981-c8c250b1-a562-42f5-a3f6-2022151ab2a5.png)
 ![Screenshot 2021-07-26 175940](https://user-images.githubusercontent.com/76084504/126988977-49aa1113-3b8d-483b-89da-926cc0df8c3e.png)
