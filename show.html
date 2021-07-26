@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+    <head>
+        <title>Course Registration</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+    </head>
+    <body>
+        <center>
+            <div class="container">
+                <h2>Register Details</h2>
+                <input id="roll" maxlength="50" placeholder="Enter Roll No..." name="roll" type="text" /><br><br>
+                <input type="button" class="btn btn-primary" value="Show Data" onclick="showData();">
+                <p id="show"></p>
+            </div>
+            <script>
+                function showData()
+                {
+                    var token = "90936313|-31948846140167815|90945050";
+                    var dbname = "COURSE";
+                    var relationName = "course-details";
+                    var rollVar = document.getElementById("roll").value;
+                    var jsonStr = {
+                        roll : rollVar
+                    };
+                    var reqString = createGETRequest(token, dbname, relationName, JSON.stringify(jsonStr));
+                    alert(reqString);
+                    jQuery.ajaxSetup({async: false});
+                    var resultObj = executeCommandAtGivenBaseUrl(reqString,
+                    "http://api.login2explore.com:5577", "/api/irl");
+                    jQuery.ajaxSetup({async: true});
+            
+                    var data = JSON.stringify(resultObj);
+            
+                    var res = data.split("\"");
+                    var mainContainer = document.getElementById("show");
+                    mainContainer.innerHTML = "Course : " + res[18].replace("\\","") + "    Name : " + res[10].replace("\\","") + "     Email : " + res[22].replace("\\","") + "    Mobile : " + res[14].replace("\\", "");
+                }
+            </script>
+        </center>
+    </body>
+</html>
+    
